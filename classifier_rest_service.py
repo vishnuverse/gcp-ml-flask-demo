@@ -17,8 +17,8 @@ def hello_world():
     print(age)
     print(salary)
     pred_proba = local_classifier.predict_proba(local_scalar.transform(np.array([[age, salary]])))[:, 1]
-    return "The prediction is {}".format(pred_proba)
+    return "The prediction from GCP is {}".format(pred_proba)
 
 
 if __name__ == "__main__":
-    app.run(port=8005, debug=True)
+    app.run(host='0.0.0.0', port=8005, debug=True)
