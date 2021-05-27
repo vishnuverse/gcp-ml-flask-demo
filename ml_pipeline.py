@@ -7,8 +7,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
+import joblib
 
-training_data = pd.read_csv('storepurchasedata.csv')
+training_data = pd.read_csv('gcp-ml-flask-demo/storepurchasedata.csv')
 
 training_data.describe()
 X = training_data.iloc[:, :-1].values
@@ -48,10 +49,13 @@ new_pred_proba = classifier.predict_proba(sc.transform(np.array([[42, 50000]])))
 # Picking the Model and Standard Scaler
 
 
-model_file = "classifier.pickle"
+model_file = "classifier.pkl"
 
 pickle.dump(classifier, open(model_file, 'wb'))
+joblib.dump(classifier, "classifier.joblib")
 
-scalar_file = "sc.pickle"
+scalar_file = "sc.pkl"
+joblib.dump(sc, "sc.joblib")
+
 
 pickle.dump(sc, open(scalar_file, 'wb'))

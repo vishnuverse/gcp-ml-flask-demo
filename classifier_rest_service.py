@@ -1,6 +1,5 @@
 from flask import Flask, request
 import pickle
-
 import numpy as np
 
 local_classifier = pickle.load(open('classifier.pickle', 'rb'))
@@ -21,4 +20,4 @@ def hello_world():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8005, debug=True)
+    app.run(port=8005, debug=True)
