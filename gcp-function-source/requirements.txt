@@ -1,0 +1,8 @@
+# Function dependencies, for example:
+# package>=version
+requests
+scikit-learn
+sklearn
+google-cloud-storage
+numpy
+pandas
